@@ -1,0 +1,33 @@
+// 1. Import the initial variables
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700')
+$family-sans-serif: "Rubik", sans-serif !default
+
+@import "bulma/sass/utilities/initial-variables"
+
+// 2. Set your own initial variables
+$project-waiting: #abdda4
+$project-active: #ffffbf
+$project-late: #d53e4f
+$project-maintenance: #3288bd
+
+$project-colors: ("pwaiting": $project-waiting, "pactive": $project-active, "plate": $project-late, "pmaintenance": $project-maintenance) !default
+
+// 3. Set the derived variables
+
+// 4. Import the rest of Bulma
+// @import "./bulma/bulma"
+@import "bulma/sass/utilities/_all"
+@import "bulma/sass/base/_all"
+@import "bulma/sass/elements/box"
+@import "bulma/sass/elements/content"
+@import "bulma/sass/elements/icon"
+@import "bulma/sass/elements/notification"
+@import "bulma/sass/elements/title"
+@import "bulma/sass/components/card"
+@import "bulma/sass/grid/tiles"
+@import "bulma/sass/layout/section"
+
+.card
+  @each $name, $pcolor in $project-colors
+    &.#{$name}
+      background-color: $pcolor
